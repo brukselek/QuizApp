@@ -4,6 +4,7 @@ body{
       background-color: #222629;
       font-family: Arial, sans-serif;
       color: #ffffff;
+      place-items: center;
       margin: 0;
       padding: 0;
 }
@@ -33,9 +34,6 @@ body{
       width: 65px;
       height: 65px;
 }
-h1{
-      color: #618930;
-}
 
 /*ostylowanie dla quizu*/
 .container {
@@ -50,8 +48,15 @@ h1{
                   border-radius: 25px;
                   background-color: gray;
                   &.seen{
-                        background-color: #eaca5b;
+                        background-color: #618930;
                   }
+            }
+      }
+}
+.container.light-mode{
+      .quiz-progress{
+            span{
+                  background-color: #eaca5b;
             }
       }
 }
@@ -59,11 +64,11 @@ h1{
       margin: 2rem auto;
       font-size: 1.5rem;
       p:first-of-type{
-            color: grey;
+            color: #474a4f;
       }
       p:last-of-type{
             font-size: 2.2rem;
-            color: white;
+            color: #87c232;
       }
 }
 .answer-container {
