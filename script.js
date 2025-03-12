@@ -35,6 +35,8 @@ const questionContainer = document.getElementById("questionContainer");
 const answerContainer = document.getElementById("answerContainer");
 //zmienna przechowujaca obecny index pytania
 let currentQuestionIndex = 0;
+//zmiena przechowujaca wynik quizu
+let quizResult = 0;
 
 function handleQuestion(index){
 
@@ -64,22 +66,39 @@ function handleQuestion(index){
    questions[index].possibleAnswers.forEach((answer) => {
       answerContainer.innerHTML += `<button>${answer}</button>`;
    });
+
+   //wybiera wszystkie selektory button w kontenerach o id = answerContainer 
    let answers = document.querySelectorAll("#answerContainer button");
+   answers.forEach((btn) => {
+      btn.classList.remove("correct", "incorrect");
+      btn.disabled = false;
+   });
+
+   //dla kazdego przycisku z odpowiedzia
    answers.forEach((answer) => {
+      //"nasluchuje" na klikniecie przycisku 
       answer.addEventListener("click", (e) => {
+         answers.forEach((btn) => {
+            btn.style.pointerEvents = 'none';
+            btn.disabled = true;
+         });
+
          if(e.target.textContent === questions[index].correctAnswer){
-            console.log("poprawna odpowiedz");
+            quizResult++;
+            e.target.classList.add("correct");
          }
          else{
-            console.log("zla odpowiedz");
+            e.target.classList.add("incorrect");
          }
          if(currentQuestionIndex === questions.length - 1){
-            currentQuestionIndex = 0;
+            document.getElementById(("quizResult")).innerHTML = `Brawo!, twoj wynik to: ${quizResult}/3!`;
          }
          else{
-            currentQuestionIndex++;
+            setTimeout(() => {
+               currentQuestionIndex++;
+               handleQuestion(currentQuestionIndex);
+            }, 5000);
          }
-         handleQuestion(currentQuestionIndex);
       });
    });
 }
