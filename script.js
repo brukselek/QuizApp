@@ -94,10 +94,6 @@ function themeColor() {
    //toggle -> przelaczenie aktywnej klasy CSS
    
    bodyColor.classList.toggle("light-mode");
-      if(bodyColor.classList.contains("light-mode")) {
-         document.getElementById("themeIcon").src = "light_mode.png";
 
-      } else {
-         document.getElementById("themeIcon").src = "dark_mode.png";
-      }
+   icon.src = bodyColor.classList.contains("light-mode") ? "light_mode.png" : "dark_mode.png";
    }

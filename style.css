@@ -9,7 +9,7 @@ body{
       padding: 0;
 }
 /*transition tla dla jasnego motywu*/
-.light-mode{
+body.light-mode{
       transition: background-color 0.5s, color 0.5s;
       background-color: #edeae5;
       color: #000000;
@@ -26,13 +26,12 @@ body{
 }
 /*transition -> animacja: co animaowac, jak dlugo, timing-function*/
 #themeIcon{
-      transition: height 0.5s ease-out, width 0.5s ease-out;
+      transition: transform 0.4s ease-out;
       width: 50px;
       height: 50px;
 }
 #themeIcon:hover{
-      width: 65px;
-      height: 65px;
+      transform: scale(1.2);
 }
 
 /*ostylowanie dla quizu*/
@@ -53,12 +52,12 @@ body{
             }
       }
 }
-.container.light-mode{
-      .quiz-progress{
-            span{
+body.light-mode .container{
+      span{
+            &.seen{
                   background-color: #eaca5b;
-            }
-      }
+            }      
+      }      
 }
 .question-container{
       margin: 2rem auto;
@@ -68,7 +67,15 @@ body{
       }
       p:last-of-type{
             font-size: 2.2rem;
-            color: #87c232;
+            color: #ffffff;
+      }
+}
+body.light-mode .question-container {
+      p:first-of-type{
+      color: #474a4f;
+      }
+      p:last-of-type{
+            color: #000000;
       }
 }
 .answer-container {
@@ -80,7 +87,7 @@ body{
             border: none;
             font-size: 1.5rem;
             margin: 0.5rem auto;
-            background-color: #252525;
+            background-color: #474a4f;
             border: 2px solid white;
             color: white;
             transition: all 0.2s ease;
@@ -90,5 +97,15 @@ body{
             color: #eaca5b;
             border-color: #eaca5b;
             }
+      }
+}
+body.light-mode .answer-container button{
+      background-color: #fbe180;
+      color: #2c2c2c;
+      border-color: #2c2c2c;
+      &:hover{
+            background-color: #eaca5b;
+            color: #252525;
+            border-color: #252525;
       }
 }
