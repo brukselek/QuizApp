@@ -1,0 +1,89 @@
+/*transition powrotny dla calego body, zmiana koloru tla i czcionki*/
+body{
+      transition: background-color 0.5s, color 0.5s;
+      background-color: #222629;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+}
+/*transition tla dla jasnego motywu*/
+.light-mode{
+      transition: background-color 0.5s, color 0.5s;
+      background-color: #edeae5;
+      color: #000000;
+}
+
+#modeSwitch{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
+}
+/*transition -> animacja: co animaowac, jak dlugo, timing-function*/
+#themeIcon{
+      transition: height 0.5s ease-out, width 0.5s ease-out;
+      width: 50px;
+      height: 50px;
+}
+#themeIcon:hover{
+      width: 65px;
+      height: 65px;
+}
+h1{
+      color: #618930;
+}
+
+/*ostylowanie dla quizu*/
+.container {
+      width: 100%;
+      max-width: 400px;
+      .quiz-progress {
+            display: flex;
+            gap: 0.5rem;
+            span{
+                  width: 100%;
+                  height: 4px;
+                  border-radius: 25px;
+                  background-color: gray;
+                  &.seen{
+                        background-color: #eaca5b;
+                  }
+            }
+      }
+}
+.question-container{
+      margin: 2rem auto;
+      font-size: 1.5rem;
+      p:first-of-type{
+            color: grey;
+      }
+      p:last-of-type{
+            font-size: 2.2rem;
+            color: white;
+      }
+}
+.answer-container {
+      button {
+            display: block;
+            width: 100%;
+            padding: 1rem 0.5rem;
+            border-radius: 3rem;
+            border: none;
+            font-size: 1.5rem;
+            margin: 0.5rem auto;
+            background-color: #252525;
+            border: 2px solid white;
+            color: white;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            &:hover {
+            background-color: #2d2b28;
+            color: #eaca5b;
+            border-color: #eaca5b;
+            }
+      }
+}
