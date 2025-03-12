@@ -94,14 +94,17 @@ function handleQuestion(index){
             document.getElementById(("quizResult")).innerHTML = `Brawo!, twoj wynik to: ${quizResult}/3!`;
          }
          else{
-            setTimeout(() => {
-               currentQuestionIndex++;
-               handleQuestion(currentQuestionIndex);
-            }, 5000);
+            nextButton.style.display = "block"; //pokazuje guzik "nastepne pytanie"
          }
       });
    });
 }
+nextButton.addEventListener("click", () => {
+   currentQuestionIndex++;
+   handleQuestion(currentQuestionIndex);
+   nextButton.style.display = "none"; // Hide Next button after moving to the next question
+});
+
 handleQuestion(currentQuestionIndex);
 
 //segment do zmiany motywu
